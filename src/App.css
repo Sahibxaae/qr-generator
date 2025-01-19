@@ -39,7 +39,12 @@ button{
   width: 250px;
   outline: none;
   border: none;
-  background-color: rgb(78, 78, 252);
   color: #fff;
   border-radius: 4px;
+}
+.generate-btn{
+  background-color: rgb(78, 78, 252);
+}
+.download-btn{
+  background-color: rgb(75, 209, 45);
 }
