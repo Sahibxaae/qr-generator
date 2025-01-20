@@ -17,16 +17,17 @@ function App() {
     }
   };
   const download = () => {
-    if (image) {
+    fetch(image)
+    .then((response)=>response.blob())
+    .then((blob)=>{
       const link = document.createElement("a");
-      link.href = image;
-      link.download = "QRCode.png";
+      link.href = URL.createObjectURL(blob);
+      link.download = "QRcode.png";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-    } else {
-      console.error("No QR code available to download!");
-    }
+    })
+    
   };
 
   const handleText = (e) => {
@@ -64,7 +65,7 @@ function App() {
       <button className="generate-btn" onClick={generateQr}>
         Generate
       </button>
-      <button className="download-btn" onClick={download}>
+      <button className="download-btn" disabled={!image} onClick={download}>
         Download
       </button>
     </div>
