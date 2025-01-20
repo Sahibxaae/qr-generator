@@ -16,6 +16,9 @@ function App() {
       setSize("");
     }
   };
+  const preventContextMenu = (e) => {
+    e.preventDefault();
+  };
   const download = () => {
     fetch(image)
     .then((response)=>response.blob())
@@ -45,7 +48,7 @@ function App() {
   return (
     <div className="app-container">
       <h1>QR generator</h1>
-      <div>{image && <img src={image} />}</div>
+      <div>{image && <img src={image} draggable="false" onContextMenu={preventContextMenu}/>}</div>
       <div className="text-box">
         <input
           type="text"
@@ -62,7 +65,7 @@ function App() {
           onChange={(e) => handleSize(e)}
         />
       </div>
-      <button className="generate-btn" onClick={generateQr}>
+      <button className="generate-btn" disabled={!text||!size} onClick={generateQr}>
         Generate
       </button>
       <button className="download-btn" disabled={!image} onClick={download}>

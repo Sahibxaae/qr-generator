@@ -51,6 +51,6 @@ button{
 .download-btn{
   background-color: rgb(75, 209, 45);
 }
-.download-btn:disabled{
+.download-btn:disabled,.generate-btn:disabled{
   background-color: rgba(128, 128, 128, 0.66);
 }
