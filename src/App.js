@@ -72,7 +72,7 @@ function App() {
         Download
       </button>
       <footer>
-        &copy; Copyrights {currentYear} All rights reserved - Mohamed sahib   
+        &copy; Copyrights {currentYear} All rights reserved <br/>- Mohamed sahib    
       </footer>
     </div>
   );
