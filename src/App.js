@@ -44,11 +44,11 @@ function App() {
       setSize(200);
     }
   };
-
+  const currentYear = new Date().getFullYear();
   return (
     <div className="app-container">
       <h1>QR generator</h1>
-      <div>{image && <img src={image} draggable="false" onContextMenu={preventContextMenu}/>}</div>
+      <div>{image && <img src={image} draggable="false" onContextMenu={preventContextMenu} alt="QR code"/>}</div>
       <div className="text-box">
         <input
           type="text"
@@ -71,6 +71,9 @@ function App() {
       <button className="download-btn" disabled={!image} onClick={download}>
         Download
       </button>
+      <footer>
+        &copy; Copyrights {currentYear} All rights reserved - Mohamed sahib   
+      </footer>
     </div>
   );
 }
